@@ -14,8 +14,9 @@ import { Pagination, Navigation } from "swiper";
 import { Link } from "react-router-dom";
 
 const BannerSlider = () => {
+  
   return (
-    <div className="h-[40vh] lg:h-[65vh]">
+    <div  className="h-[40vh] lg:h-[85vh]">
       <Swiper
         pagination={{
           type: "progressbar",
