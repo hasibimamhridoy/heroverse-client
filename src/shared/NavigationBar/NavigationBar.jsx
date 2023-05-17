@@ -1,5 +1,4 @@
 import { Link, NavLink } from "react-router-dom";
-import { FaBeer } from "react-icons/fa";
 import MobileDrawer from "../MobileDrawer/MobileDrawer";
 
 const NavigationBar = () => {
@@ -43,26 +42,30 @@ const NavigationBar = () => {
                   </li>
                 </NavLink>
 
-                {user&&<NavLink
-                  to="/myToys"
-                  className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "text-purple-500" : ""
-                  }
-                >
-                  <li className="hover:text-purple-500 hover:transition hover:duration-500 cursor-pointer">
-                    My Toys
-                  </li>
-                </NavLink>}
-                {user&&<NavLink
-                  to="/addAToy"
-                  className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "text-purple-500" : ""
-                  }
-                >
-                  <li className="hover:text-purple-500 hover:transition hover:duration-500 cursor-pointer">
-                    Add Toys
-                  </li>
-                </NavLink>}
+                {user && (
+                  <NavLink
+                    to="/myToys"
+                    className={({ isActive, isPending }) =>
+                      isPending ? "pending" : isActive ? "text-purple-500" : ""
+                    }
+                  >
+                    <li className="hover:text-purple-500 hover:transition hover:duration-500 cursor-pointer">
+                      My Toys
+                    </li>
+                  </NavLink>
+                )}
+                {user && (
+                  <NavLink
+                    to="/addAToy"
+                    className={({ isActive, isPending }) =>
+                      isPending ? "pending" : isActive ? "text-purple-500" : ""
+                    }
+                  >
+                    <li className="hover:text-purple-500 hover:transition hover:duration-500 cursor-pointer">
+                      Add Toys
+                    </li>
+                  </NavLink>
+                )}
                 <NavLink
                   to="/blogs"
                   className={({ isActive, isPending }) =>
@@ -118,7 +121,6 @@ const NavigationBar = () => {
           </div>
         </div>
       </div>
-      
     </div>
   );
 };
