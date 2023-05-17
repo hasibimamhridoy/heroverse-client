@@ -1,0 +1,36 @@
+
+.swiper {
+  width: 100%;
+  height: 100%;
+
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+}
+
+.swiper-pagination-progressbar-fill {
+  border: 0.1px solid #d400ffc7;
+  border-radius: 10px;
+}
+
+.swiper-pagination-progressbar {
+  background-color: white;
+  /* border-radius: 10px; */
+  border: 0.1em solid;
+}

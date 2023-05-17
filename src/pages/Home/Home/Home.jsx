@@ -1,9 +1,12 @@
 import React from 'react';
+import BannerSlider from '../BannerSlider/BannerSlider';
+import MobileDrawer from '../../../shared/MobileDrawer/MobileDrawer';
 
 const Home = () => {
     return (
         <div>
-            Home
+            <BannerSlider></BannerSlider>
+            <MobileDrawer></MobileDrawer>
         </div>
     );
 };
