@@ -235,6 +235,8 @@ const Register = () => {
                   </div>
                 </div>
 
+                <p className="text-red-500 my-3">{error}</p>
+
                 <div className="text-center lg:text-left">
                   <button
                     type="submit"

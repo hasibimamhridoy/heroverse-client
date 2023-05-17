@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../ContextProvider/AuthContextProvider";
 
 const NavigationBar = () => {
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
 
   return (
     <div className="shadow-purple-500 shadow-[0_2px_0px_-1px_rgb(0,0,0,0.1),0_2px_4px_-2px_rgb(0,0,0,0.1)]	">
@@ -85,11 +85,16 @@ const NavigationBar = () => {
                 <Link to="/">
                   <label
                     tabIndex={0}
-                    className="btn btn-ghost btn-circle avatar"
+                    className="btn tooltip tooltip-bottom btn-ghost btn-circle avatar"
+                    data-tip={user&&user.displayName}
                   >
-                    <div className="w-10 rounded-full">
-                      <img src={user&& user.photoURL} />
+                    <div
+                      className="w-10 text-white rounded-full"
+                      
+                    >
+                      <img src={user && user.photoURL} />
                     </div>
+
                   </label>
                 </Link>
               ) : (
@@ -105,8 +110,10 @@ const NavigationBar = () => {
             </div>
 
             <div className="block lg:hidden">
-            <MobileDrawer></MobileDrawer>
+              <MobileDrawer></MobileDrawer>
             </div>
+
+        
           </div>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../ContextProvider/AuthContextProvider";
-import GoogleIcon from '@mui/icons-material/Google';
+import GoogleIcon from "@mui/icons-material/Google";
 
 const Login = () => {
   const { handleManualLogin, handleGoogleRegister, user } =
@@ -40,6 +40,9 @@ const Login = () => {
   if (error == "Firebase: Error (auth/wrong-password).") {
     setError("Your Password is wrong.Please provided correct password");
   }
+  if (error == "Firebase: Error (auth/user-not-found).") {
+    setError("No User Exist in this Email");
+  }
   if (error == "Firebase: Error (auth/invalid-email).") {
     setError("Email is wrong.Please Provided valid Email.");
   }
@@ -74,7 +77,7 @@ const Login = () => {
                   <p className="mb-0 mr-4 text-lg">Sign in with</p>
 
                   <button
-                  onClick={handleGoogle}
+                    onClick={handleGoogle}
                     type="button"
                     data-te-ripple-init
                     data-te-ripple-color="light"
@@ -156,6 +159,8 @@ const Login = () => {
                     />
                   </div>
                 </div>
+
+                <p className="text-red-500 my-3">{error}</p>
 
                 <div className="mb-6 space-x-3 flex items-center justify-between">
                   <div className="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
