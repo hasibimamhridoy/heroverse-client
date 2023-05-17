@@ -8,6 +8,7 @@ import AddAToy from '../../pages/AddAToy/AddAToy';
 import Blogs from '../../pages/Blogs/Blogs';
 import Login from '../../pages/LoginRegister/Login/Login';
 import Register from '../../pages/LoginRegister/Register/Register';
+import ProductsDetails from '../../pages/ProductsDetails/ProductsDetails';
 
 const router =createBrowserRouter([
     {
@@ -41,6 +42,11 @@ const router =createBrowserRouter([
             {
                 path:'/register',
                 element:<Register></Register>
+            },
+            {
+                path:'/productsDetails/:id',
+                element:<ProductsDetails></ProductsDetails>,
+                loader:({params})=>fetch(`http://localhost:5000/productsDetails/${params.id}`)
             },
         ]
     }
