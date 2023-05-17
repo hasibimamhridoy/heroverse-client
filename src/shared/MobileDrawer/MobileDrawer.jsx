@@ -122,7 +122,7 @@ export default function MobileDrawer() {
       {["right"].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button sx={{ color: "white" }} onClick={toggleDrawer(anchor, true)}>
-            <MenuIcon></MenuIcon>
+            {user? <img className="h-10 w-10 rounded-full" src={user.photoURL}></img>:<MenuIcon></MenuIcon>}
           </Button>
 
           <SwipeableDrawer

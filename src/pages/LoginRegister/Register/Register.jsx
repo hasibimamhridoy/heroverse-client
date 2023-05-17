@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../ContextProvider/AuthContextProvider";
 import { getAuth, updateProfile } from "firebase/auth";
+import GoogleIcon from '@mui/icons-material/Google';
 import { app } from "../../../firebase/FirebaseConfig/firebaseConfig";
 
 const auth = getAuth(app);
@@ -105,19 +106,13 @@ const Register = () => {
                   <p className="mb-0 mr-4 text-lg">Register in with</p>
 
                   <button
+                  onClick={handleGoogle}
                     type="button"
                     data-te-ripple-init
                     data-te-ripple-color="light"
                     className="mx-1 h-9 w-9 rounded-full bg-primary uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)]"
                   >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="mx-auto h-3.5 w-3.5"
-                      fill="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
-                    </svg>
+                    <GoogleIcon></GoogleIcon>
                   </button>
 
                   <button
@@ -161,36 +156,36 @@ const Register = () => {
 
                 <div className="my-5 space-y-4 text-black">
                   <div className="flexNameEmail flex gap-3">
-                  <div className="w-full">
-                    <label
-                      htmlFor="name"
-                      className="block mb-2 text-sm font-medium text-white dark:text-white"
-                    >
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      id="name"
-                      className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                      placeholder="Your Name"
-                    />
-                  </div>
-                  <div className="w-full">
-                    <label
-                      htmlFor="email"
-                      className="block mb-2 text-sm font-medium text-white dark:text-white"
-                    >
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      id="email"
-                      className="bg-gray-50 border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                      placeholder="name@company.com"
-                    />
-                  </div>
+                    <div className="w-full">
+                      <label
+                        htmlFor="name"
+                        className="block mb-2 text-sm font-medium text-white dark:text-white"
+                      >
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        className="bg-gray-50 border border-gray-300 text-black text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                        placeholder="Your Name"
+                      />
+                    </div>
+                    <div className="w-full">
+                      <label
+                        htmlFor="email"
+                        className="block mb-2 text-sm font-medium text-white dark:text-white"
+                      >
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        className="bg-gray-50 border border-gray-300 text-black  text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                        placeholder="name@company.com"
+                      />
+                    </div>
                   </div>
 
                   <div>
