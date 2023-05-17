@@ -1,8 +1,10 @@
 import { Link, NavLink } from "react-router-dom";
 import MobileDrawer from "../MobileDrawer/MobileDrawer";
+import { useContext } from "react";
+import { AuthContext } from "../../ContextProvider/AuthContextProvider";
 
 const NavigationBar = () => {
-  const user = null;
+  const {user} = useContext(AuthContext)
 
   return (
     <div className="shadow-purple-500 shadow-[0_2px_0px_-1px_rgb(0,0,0,0.1),0_2px_4px_-2px_rgb(0,0,0,0.1)]	">
@@ -103,20 +105,7 @@ const NavigationBar = () => {
             </div>
 
             <div className="block lg:hidden">
-              {user ? (
-                <Link to="/">
-                  <label
-                    tabIndex={0}
-                    className="btn btn-ghost btn-circle avatar"
-                  >
-                    <div className="w-10 rounded-full">
-                      <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-                    </div>
-                  </label>
-                </Link>
-              ) : (
-                <MobileDrawer></MobileDrawer>
-              )}
+            <MobileDrawer></MobileDrawer>
             </div>
           </div>
         </div>
