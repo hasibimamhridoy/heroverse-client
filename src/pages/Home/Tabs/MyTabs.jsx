@@ -11,8 +11,6 @@ import { Link } from "react-router-dom";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-  console.log(value);
-
   return (
     <div
       role="tabpanel"
@@ -61,6 +59,7 @@ export default function MyTabs() {
   };
 
   const handleChangeIndex = (index) => {
+
     setValue(index);
   };
 
