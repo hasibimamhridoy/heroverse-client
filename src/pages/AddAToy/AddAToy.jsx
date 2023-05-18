@@ -1,6 +1,18 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import swal from 'sweetalert';
+import { AuthContext } from "../../ContextProvider/AuthContextProvider";
 const AddAToy = () => {
+    const {user} = useContext(AuthContext)
+    const [userName,setUserName] = useState(user.displayName)
+    const [userEmail,setUserEmail] = useState(user.email)
+
+    console.log(userName,userEmail);
+    
+    // console.log(user);
+
+    // useEffect(()=>{
+
+    // },[])
 
     const handleAddProduct = (e)=>{
         e.preventDefault()
@@ -27,12 +39,6 @@ const AddAToy = () => {
             category_id = '2'
         }
 
-        
-        console.log(category_id);
-
-
-        
-        console.log(name,seller_name,seller_email,sub_category,picture,price,description,rating,quantity);
         const addNewProductsItemInformation = {name,seller_name,seller_email,sub_category,picture,price,description,rating,quantity,category_id};
 
         fetch('http://localhost:5000/products',{
@@ -95,6 +101,7 @@ const AddAToy = () => {
                     type="text"
                     name="sellerName"
                     id="sellerName"
+                    value={user&&userName}
                     className="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Seller Name"
                     required=""
@@ -112,6 +119,7 @@ const AddAToy = () => {
                     type="email"
                     name="sellerEmail"
                     id="sellerEmail"
+                    value={user&&userEmail}
                     className="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Seller Email"
                     required=""
