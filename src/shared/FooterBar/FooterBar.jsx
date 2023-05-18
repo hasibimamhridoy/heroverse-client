@@ -5,11 +5,11 @@ const FooterBar = () => {
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">
-              <a href="https://flowbite.com/" className="flex items-center">
+              <a className="flex items-center">
                 <img
                   src="HeroVerse.svg"
                   className="h-20 mr-3"
-                  alt="FlowBite Logo"
+                  alt="HeroVerse Logo"
                 />
                 <span className="self-center lg:text-2xl text-xl font-semibold whitespace-nowrap dark:text-white">
                   HeroVerse
@@ -19,20 +19,20 @@ const FooterBar = () => {
             <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
               <div>
                 <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white">
-                  Resources
+                  Contact Us
                 </h2>
                 <ul className="text-white dark:text-gray-400 font-medium">
                   <li className="mb-4">
-                    <a href="https://flowbite.com/" className="hover:underline">
-                      Flowbite
+                    <a className="hover:underline">
+                      HeroVerse@gmail.com
                     </a>
                   </li>
                   <li>
                     <a
-                      href="https://tailwindcss.com/"
+                      
                       className="hover:underline"
                     >
-                      Tailwind CSS
+                      +8801706831927
                     </a>
                   </li>
                 </ul>
@@ -44,7 +44,7 @@ const FooterBar = () => {
                 <ul className="text-white dark:text-gray-400 font-medium">
                   <li className="mb-4">
                     <a
-                      href="https://github.com/themesberg/flowbite"
+                      
                       className="hover:underline "
                     >
                       Github
@@ -52,7 +52,7 @@ const FooterBar = () => {
                   </li>
                   <li>
                     <a
-                      href="https://discord.gg/4eeurUVvTy"
+                      
                       className="hover:underline"
                     >
                       Discord
@@ -83,7 +83,7 @@ const FooterBar = () => {
           <div className="sm:flex sm:items-center sm:justify-between">
             <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
               © 2023{" "}
-              <a href="https://flowbite.com/" className="hover:underline">
+              <a className="hover:underline">
                 HeroVerse Toys
               </a>
               . All Rights Reserved.

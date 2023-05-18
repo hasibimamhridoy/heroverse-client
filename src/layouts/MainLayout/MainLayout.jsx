@@ -1,15 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import NavigationBar from '../../shared/NavigationBar/NavigationBar';
 import FooterBar from '../../shared/FooterBar/FooterBar';
 import { Outlet, useLocation } from 'react-router-dom';
 
+
 const MainLayout = () => {
 
     const loc = useLocation()
-
-   
-    console.log(loc.pathname);
-    console.log(loc.state);
 
     useEffect(()=>{
 
@@ -29,6 +26,8 @@ const MainLayout = () => {
 
     },[loc.pathname])
 
+
+   
 
     return (
         <div>

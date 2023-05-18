@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Spinner from "../../shared/Spinner/Spinner";
 
 const AllToys = () => {
   const [products, setProducts] = useState([]);
@@ -21,13 +22,18 @@ const AllToys = () => {
       });
   };
 
+  if (products.length < 1) {
+    return (
+      <Spinner></Spinner>
+    );
+  }
+
   return (
     <div className="mx-1">
       <h1 className="text-xl text-center lg:my-10 my-5 lg:text-3xl text-white font-semibold">
         All Toys
       </h1>
 
-    
       <div className="search lg:my-10 my-5 mx-auto lg:w-[70%]">
         <form onSubmit={handleSearch}>
           <label
@@ -70,7 +76,6 @@ const AllToys = () => {
           </div>
         </form>
       </div>
-
 
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">

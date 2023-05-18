@@ -6,14 +6,6 @@ const AddAToy = () => {
     const [userName,setUserName] = useState(user.displayName)
     const [userEmail,setUserEmail] = useState(user.email)
 
-    console.log(userName,userEmail);
-    
-    // console.log(user);
-
-    // useEffect(()=>{
-
-    // },[])
-
     const handleAddProduct = (e)=>{
         e.preventDefault()
         const form = e.target
@@ -68,9 +60,7 @@ const AddAToy = () => {
       <div className="productFormContainer">
         <section className="bg-gradient-to-br rounded-lg from-purple-600 to-blue-500 hover:bg-gradient-to-bl dark:bg-gray-900">
           <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
-            <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
-              Add a new product
-            </h2>
+           
             <form onSubmit={handleAddProduct}>
               <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
                 <div className="sm:col-span-2">

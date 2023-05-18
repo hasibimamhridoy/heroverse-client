@@ -4,6 +4,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import CreateIcon from "@mui/icons-material/Create";
 import { AuthContext } from "../../ContextProvider/AuthContextProvider";
 import swal from "sweetalert";
+import Spinner from "../../shared/Spinner/Spinner";
 
 const MyToys = () => {
   const { user } = useContext(AuthContext);
@@ -47,6 +48,12 @@ const MyToys = () => {
       }
     });
   };
+
+  if (products.length < 1) {
+    return (
+      <Spinner></Spinner>
+    );
+  }
 
   return (
     <div className="mx-1">

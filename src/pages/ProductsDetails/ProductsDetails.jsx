@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
 import { useLoaderData, useLocation } from "react-router-dom";
 import Rating from "@mui/material/Rating";
+import Spinner from "../../shared/Spinner/Spinner";
 const ProductsDetails = () => {
   const product = useLoaderData();
+  
   const loc = useLocation();
   const {
     category_id,
@@ -63,22 +65,22 @@ const ProductsDetails = () => {
             <hr className="h-px my-3 bg-gray-200 border-0 dark:bg-gray-700"></hr>
 
             <div className="space-y-2">
-            <h1 className="text-gray-300">
-              Seller Name :{" "}
-              <span className="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
-                {seller_name}
-              </span>{" "}
-            </h1>
-            <h1 className="text-gray-300">
-              Seller Email :{" "}
-              <span className="bg-yellow-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
-                {seller_email}
-              </span>{" "}
-            </h1>
+              <h1 className="text-gray-300">
+                Seller Name :{" "}
+                <span className="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
+                  {seller_name}
+                </span>{" "}
+              </h1>
+              <h1 className="text-gray-300">
+                Seller Email :{" "}
+                <span className="bg-yellow-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
+                  {seller_email}
+                </span>{" "}
+              </h1>
 
-            <h1 className="text-gray-300">
+              <h1 className="text-gray-300">
                 Quantity :
-              <span className="bg-yellow-100 ml-3 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
+                <span className="bg-yellow-100 ml-3 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
                   {quantity}
                 </span>
               </h1>
@@ -100,11 +102,11 @@ const ProductsDetails = () => {
 
               <div className="mt-8">
                 <button
-                    type="button"
-                    className="text-black w-full bg-white  focus:outline-none  dark:focus:ring-blue-800 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2"
-                  >
-                    Buy Now
-                  </button>
+                  type="button"
+                  className="text-black w-full hover:bg-gray-100 bg-white  focus:outline-none  dark:focus:ring-blue-800 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2"
+                >
+                  Buy Now
+                </button>
               </div>
             </div>
           </div>

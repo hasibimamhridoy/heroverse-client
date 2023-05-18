@@ -67,11 +67,11 @@ const UpdateProduct = () => {
   return <div>
     <div>
       <h1 className="text-xl text-center lg:my-10 my-5 lg:text-3xl text-white font-semibold">
-        Add A Toys
+        Update A Toys
       </h1>
 
       <div className="productFormContainer">
-        <section className="bg-gradient-to-br rounded-lg from-purple-600 to-blue-500 hover:bg-gradient-to-bl dark:bg-gray-900">
+        <section className="bg-gradient-to-br rounded-lg bg-purple-800 dark:bg-gray-900">
           <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
             <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
               Add a new product
