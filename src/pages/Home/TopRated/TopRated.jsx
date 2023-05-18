@@ -7,7 +7,7 @@ const TopRated = () => {
   const [totalRated, setTotalRated] = useState({});
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState();
-  const pageLimit = 3;
+  const [pageLimit, setPageLimit] = useState(3);
   const pages = Math.ceil(totalRated / pageLimit);
   const pageButton = [];
   for (let index = 0; index < pages; index++) {
@@ -26,12 +26,28 @@ const TopRated = () => {
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [currentPage, pageLimit]);
+
+  //handle previous and next btn error
+  const handlePreviousPage = () => {
+    if (currentPage == 0) {
+      setCurrentPage(0);
+    } else {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+  const handleNextPage = () => {
+    if (currentPage == Math.max(...pageButton)) {
+      setCurrentPage(Math.max(...pageButton));
+    } else {
+      setCurrentPage(currentPage + 1);
+    }
+  };
   return (
     <div>
       <h1 className="text-xl text-center lg:my-10 my-5 lg:text-3xl text-white font-semibold">
         Top Rated Products
       </h1>
-      <div className="grid lg:grid-cols-3 gap-5 mx-auto my-10 w-[100%] p-5 grid-cols-1">
+      <div className="grid lg:grid-cols-3 gap-5 mx-auto lg:my-10 my-5 w-[100%] p-5 grid-cols-1">
         {topRated.map((rProduct) => {
           const {
             category_id,
@@ -111,12 +127,12 @@ const TopRated = () => {
         })}
       </div>
 
-      <div className="flex justify-center">
+      <div className="flex justify-center px-5">
         <nav aria-label="Page navigation example">
-          <ul className="inline-flex -space-x-px">
+          <ul className="flex gap-y-7 flex-wrap flex-shrink flex-grow -space-x-px">
             <li>
               <a
-                href="#"
+                onClick={handlePreviousPage}
                 className="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               >
                 Previous
@@ -126,7 +142,12 @@ const TopRated = () => {
             {pageButton.map((btn) => {
               return (
                 <li onClick={() => setCurrentPage(btn)} key={btn}>
-                  <a className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                  <a
+                    className={`px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300   dark:bg-gray-800 cursor-pointer dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${
+                      currentPage === btn &&
+                      "bg-purple-700 text-white border-none hover:bg-purple-700 hover:text-white"
+                    }`}
+                  >
                     {btn}
                   </a>
                 </li>
@@ -135,12 +156,23 @@ const TopRated = () => {
 
             <li>
               <a
-                href="#"
-                className="px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                onClick={handleNextPage}
+                className="px-3 mr-5 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
               >
                 Next
               </a>
             </li>
+            <div className="ml-3">
+              <select
+              onChange={(e)=>setPageLimit(e.target.value)}
+                id="countries"
+                className="bg-gray-50 -mt-2 w-[3rem] text-gray-900 text-sm rounded-lg  block p-2.5"
+              >
+                <option value="3">3</option>
+                <option value="6">6</option>
+                <option value="9">9</option>
+              </select>
+            </div>
           </ul>
         </nav>
       </div>
