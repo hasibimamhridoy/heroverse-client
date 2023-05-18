@@ -14,7 +14,7 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <div data-aos="slide-left">
+      <div data-aos="zoom-in">
         <BannerSlider></BannerSlider>
       </div>
       <div data-aos="zoom-in">
