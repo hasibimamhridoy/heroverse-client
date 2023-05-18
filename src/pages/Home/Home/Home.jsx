@@ -20,7 +20,7 @@ const Home = () => {
       <div data-aos="zoom-in">
         <Gallary></Gallary>
       </div>
-      <div data-aos="slide-right">
+      <div data-aos="zoom-in">
         <MyTabs></MyTabs>
       </div>
     </div>
