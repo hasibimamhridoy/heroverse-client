@@ -10,6 +10,7 @@ import Login from '../../pages/LoginRegister/Login/Login';
 import Register from '../../pages/LoginRegister/Register/Register';
 import ProductsDetails from '../../pages/ProductsDetails/ProductsDetails';
 import PrivateRouter from '../PrivateRouter/PrivateRouter';
+import UpdateProduct from '../../pages/MyToys/UpdateProduct/UpdateProduct';
 
 const router =createBrowserRouter([
     {
@@ -47,6 +48,11 @@ const router =createBrowserRouter([
             {
                 path:'/productsDetails/:id',
                 element:<PrivateRouter><ProductsDetails></ProductsDetails></PrivateRouter>,
+                loader:({params})=>fetch(`http://localhost:5000/productsDetails/${params.id}`)
+            },
+            {
+                path:'/updatedProduct/:id',
+                element:<PrivateRouter><UpdateProduct></UpdateProduct></PrivateRouter>,
                 loader:({params})=>fetch(`http://localhost:5000/productsDetails/${params.id}`)
             },
         ]

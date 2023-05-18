@@ -114,9 +114,9 @@ const MyToys = () => {
                   <td className="px-6 py-4">{quantity}</td>
 
                   <td className="px-6 py-4">
-                    <span className="text-green-500 cursor-pointer hover:bg-gray-100 border-none btn btn-sm bg-white btn-circle">
+                    <Link to={`/updatedProduct/${_id}`}><span  className="text-green-500 cursor-pointer hover:bg-gray-100 border-none btn btn-sm bg-white btn-circle">
                       <CreateIcon></CreateIcon>
-                    </span>
+                    </span></Link>
                   </td>
                   <td className="px-6 py-4">
                     <span onClick={()=>handleDeleted(_id)} className="text-red-500 cursor-pointer hover:bg-gray-100 border-none btn btn-sm bg-white btn-circle">
