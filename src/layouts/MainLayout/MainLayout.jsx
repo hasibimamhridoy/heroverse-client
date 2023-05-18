@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import NavigationBar from '../../shared/NavigationBar/NavigationBar';
 import FooterBar from '../../shared/FooterBar/FooterBar';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 
 const MainLayout = () => {
+
+    const loc = useLocation()
+
+   
+    console.log(loc.pathname);
+    console.log(loc.state);
+
+    useEffect(()=>{
+
+
+        if (loc.state) {
+              document.title = `HeroVerse - ${loc.state}`
+        }
+
+        else if (loc.pathname === '/') {
+
+             document.title = "HeroVerse - Home"
+        }
+
+        else{
+             document.title = `HeroVerse ${loc.pathname.toUpperCase()}`.replace('/','-')
+        }
+
+    },[loc.pathname])
+
+
     return (
         <div>
             <div>

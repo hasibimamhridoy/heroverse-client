@@ -12,14 +12,10 @@ const Login = () => {
   const fromPath = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
 
-  console.log(error);
-
   const handleLogin = (e) => {
     e.preventDefault();
     const pass = e.target.password.value;
     const email = e.target.email.value;
-
-    console.log(email, pass);
 
     if (email.length < 1) {
       return setError("You cannot submit empty email fields.");
