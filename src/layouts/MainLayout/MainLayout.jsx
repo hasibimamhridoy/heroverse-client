@@ -35,7 +35,7 @@ const MainLayout = () => {
             <div>
                 <NavigationBar></NavigationBar>
             </div>
-            <div className='mt-2'>
+            <div className='mt-2 lg:mb-20 mb-10'>
                 <Outlet></Outlet>
             </div>
             <div>
