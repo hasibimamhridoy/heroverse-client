@@ -9,15 +9,17 @@ import Spinner from "../../shared/Spinner/Spinner";
 const MyToys = () => {
   const { user } = useContext(AuthContext);
 
+  const [sortValue,setSortValue] = useState(-1)
+  console.log(sortValue);
+
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/myAddedProducts?email=${user && user.email}`)
+    fetch(`http://localhost:5000/myAddedProducts?email=${user && user.email}&sortValue=${sortValue}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
       });
-  }, [user]);
-
+  }, [user,sortValue]);
 
   const handleDeleted = (_id) => {
     swal({
@@ -35,9 +37,8 @@ const MyToys = () => {
           .then((data) => {
             console.log(data);
 
-            const remaining = products.filter(product=>product._id !== _id)
-            setProducts(remaining)
-
+            const remaining = products.filter((product) => product._id !== _id);
+            setProducts(remaining);
           });
 
         swal("Poof! Your Product has been deleted!", {
@@ -50,9 +51,7 @@ const MyToys = () => {
   };
 
   if (products.length < 1) {
-    return (
-      <Spinner></Spinner>
-    );
+    return <Spinner></Spinner>;
   }
 
   return (
@@ -60,6 +59,21 @@ const MyToys = () => {
       <h1 className="text-xl text-center lg:my-10 my-5 lg:text-3xl text-white font-semibold">
         My Added Toys
       </h1>
+
+      <label
+        htmlFor="countries"
+        className="block mb-2 text-sm font-medium text-white dark:text-white"
+      >
+        Sort by price
+      </label>
+      <select
+      onChange={(e)=>setSortValue(e.target.value)}
+        id="countries"
+        className="bg-gray-50 mb-5 w-32 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+      >
+        <option value="-1">Low to high</option>
+        <option value="1">High to low</option>
+      </select>
 
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -121,12 +135,17 @@ const MyToys = () => {
                   <td className="px-6 py-4">{quantity}</td>
 
                   <td className="px-6 py-4">
-                    <Link to={`/updatedProduct/${_id}`}><span  className="text-green-500 cursor-pointer hover:bg-gray-100 border-none btn btn-sm bg-white btn-circle">
-                      <CreateIcon></CreateIcon>
-                    </span></Link>
+                    <Link to={`/updatedProduct/${_id}`}>
+                      <span className="text-green-500 cursor-pointer hover:bg-gray-100 border-none btn btn-sm bg-white btn-circle">
+                        <CreateIcon></CreateIcon>
+                      </span>
+                    </Link>
                   </td>
                   <td className="px-6 py-4">
-                    <span onClick={()=>handleDeleted(_id)} className="text-red-500 cursor-pointer hover:bg-gray-100 border-none btn btn-sm bg-white btn-circle">
+                    <span
+                      onClick={() => handleDeleted(_id)}
+                      className="text-red-500 cursor-pointer hover:bg-gray-100 border-none btn btn-sm bg-white btn-circle"
+                    >
                       <DeleteIcon></DeleteIcon>
                     </span>
                   </td>

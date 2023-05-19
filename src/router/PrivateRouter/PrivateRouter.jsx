@@ -4,6 +4,7 @@ import { Navigate, useLocation } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 
 import "react-toastify/dist/ReactToastify.css";
+import Spinner from "../../shared/Spinner/Spinner";
 const PrivateRouter = ({ children }) => {
   const location = useLocation();
   const { user, loading } = useContext(AuthContext);
@@ -13,7 +14,7 @@ const PrivateRouter = ({ children }) => {
   // }
 
   if (loading) {
-    return <div className="text-4xl">Loading........</div>;
+    return <Spinner></Spinner>;
   }
 
   if (!user) {

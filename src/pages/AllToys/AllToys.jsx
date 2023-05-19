@@ -4,13 +4,13 @@ import Spinner from "../../shared/Spinner/Spinner";
 
 const AllToys = () => {
   const [products, setProducts] = useState([]);
-  useEffect(() => {
-    fetch(`http://localhost:5000/products`)
-      .then((res) => res.json())
-      .then((data) => {
-        setProducts(data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch(`http://localhost:5000/products`)
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setProducts(data);
+  //     });
+  // }, []);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -21,6 +21,57 @@ const AllToys = () => {
         setProducts(data);
       });
   };
+
+  //here is pagination
+  const [totalRated, setTotalRated] = useState({});
+  const [currentPage, setCurrentPage] = useState(0);
+  const [pageLimit, setPageLimit] = useState(20);
+  const pages = Math.ceil(totalRated / pageLimit);
+  const pageButton = [];
+  for (let index = 0; index < pages; index++) {
+    pageButton.push(index);
+  }
+  useEffect(() => {
+    fetch(`http://localhost:5000/products/totalProducts`)
+      .then((res) => res.json())
+      .then((data) => setTotalRated(data.totalRatedItem));
+  }, []);
+
+  useEffect(() => {
+    fetch(
+      `http://localhost:5000/products?page=${currentPage}&limit=${pageLimit}`
+    )
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, [currentPage, pageLimit]);
+
+
+
+
+
+  //handle previous and next btn error
+  const handlePreviousPage = () => {
+    if (currentPage == 0) {
+      setCurrentPage(0);
+    } else {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+  const handleNextPage = () => {
+    if (currentPage == Math.max(...pageButton)) {
+      setCurrentPage(Math.max(...pageButton));
+    } else {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+
+
+
+
+
+
+
 
   if (products.length < 1) {
     return (
@@ -141,6 +192,56 @@ const AllToys = () => {
             );
           })}
         </table>
+      </div>
+
+      <div className="flex mt-10 justify-center px-5">
+        <nav aria-label="Page navigation example">
+          <ul className="flex gap-y-7 flex-wrap flex-shrink flex-grow -space-x-px">
+            <li>
+              <a
+                onClick={handlePreviousPage}
+                className="px-3 py-2 ml-0 leading-tight text-gray-500 bg-white border border-gray-300 rounded-l-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                Previous
+              </a>
+            </li>
+
+            {pageButton.map((btn) => {
+              return (
+                <li onClick={() => setCurrentPage(btn)} key={btn}>
+                  <a
+                    className={`px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300   dark:bg-gray-800 cursor-pointer dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${
+                      currentPage === btn &&
+                      "bg-purple-700 text-white border-none hover:bg-purple-700 hover:text-white"
+                    }`}
+                  >
+                    {btn}
+                  </a>
+                </li>
+              );
+            })}
+
+            <li>
+              <a
+                onClick={handleNextPage}
+                className="px-3 mr-5 py-2 leading-tight text-gray-500 bg-white border border-gray-300 rounded-r-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+              >
+                Next
+              </a>
+            </li>
+            <div className="ml-3">
+              <select
+                onChange={(e) => setPageLimit(e.target.value)}
+                id="countries"
+                className="bg-gray-50 -mt-2 w-[3.5rem] text-gray-900 text-sm rounded-lg  block p-2.5"
+              >
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+              </select>
+            </div>
+          </ul>
+        </nav>
       </div>
     </div>
   );

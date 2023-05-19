@@ -164,7 +164,7 @@ const TopRated = () => {
             </li>
             <div className="ml-3">
               <select
-              onChange={(e)=>setPageLimit(e.target.value)}
+                onChange={(e) => setPageLimit(e.target.value)}
                 id="countries"
                 className="bg-gray-50 -mt-2 w-[3rem] text-gray-900 text-sm rounded-lg  block p-2.5"
               >
