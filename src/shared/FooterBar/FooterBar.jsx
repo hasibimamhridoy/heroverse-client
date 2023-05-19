@@ -7,7 +7,7 @@ const FooterBar = () => {
             <div className="mb-6 md:mb-0">
               <a className="flex items-center">
                 <img
-                  src="HeroVerse.svg"
+                  src="HeroVerse.png"
                   className="h-20 mr-3"
                   alt="HeroVerse Logo"
                 />

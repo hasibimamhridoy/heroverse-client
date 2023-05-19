@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import NavigationBar from '../../shared/NavigationBar/NavigationBar';
 import FooterBar from '../../shared/FooterBar/FooterBar';
-import { Outlet, useLocation } from 'react-router-dom';
+import { Outlet, ScrollRestoration, useLocation } from 'react-router-dom';
 
 
 const MainLayout = () => {
@@ -31,6 +31,7 @@ const MainLayout = () => {
 
     return (
         <div>
+            <ScrollRestoration></ScrollRestoration>
             <div>
                 <NavigationBar></NavigationBar>
             </div>

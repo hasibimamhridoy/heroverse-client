@@ -14,10 +14,14 @@ const NavigationBar = () => {
             <Link to="/">
               <img
                 className="lg:h-[5rem] h-[3.5rem]"
-                src="HeroVerse.svg"
+                src="HeroVerse.png"
                 alt=""
               />
             </Link>
+            
+            <h1 className="text-gray-300 font-thin">HeroVerse</h1>
+            
+            
           </div>
           <div className="menuItems flex justify-center items-center gap-10">
             <ul className="flex gap-10">

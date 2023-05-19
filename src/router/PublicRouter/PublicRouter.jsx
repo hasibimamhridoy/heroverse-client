@@ -16,6 +16,7 @@ import NewArrivalsDetails from '../../pages/Home/NewArrival/NewArrivalDetails';
 import MyProfile from '../../pages/MyProfile/MyProfile';
 
 const router =createBrowserRouter([
+    
     {
         path:'/',
         element:<MainLayout></MainLayout>,
