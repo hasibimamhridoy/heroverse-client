@@ -47,7 +47,7 @@ const UpdateProduct = () => {
 
     const addNewProductsItemInformation = {name,seller_name,seller_email,sub_category,picture,price,description,rating,quantity,category_id};
     
-    fetch(`http://localhost:5000/products/update/${_id}`,{
+    fetch(`https://heroverse-toys-server-site.vercel.app/products/update/${_id}`,{
           method:"PUT",
           headers:{
               "Content-Type" : "application/json"

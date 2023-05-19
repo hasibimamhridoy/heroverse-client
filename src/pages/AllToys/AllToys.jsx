@@ -5,7 +5,7 @@ import Spinner from "../../shared/Spinner/Spinner";
 const AllToys = () => {
   const [products, setProducts] = useState([]);
   // useEffect(() => {
-  //   fetch(`http://localhost:5000/products`)
+  //   fetch(`https://heroverse-toys-server-site.vercel.app/products`)
   //     .then((res) => res.json())
   //     .then((data) => {
   //       setProducts(data);
@@ -15,7 +15,7 @@ const AllToys = () => {
   const handleSearch = (e) => {
     e.preventDefault();
     console.log(e.target.name.value);
-    fetch(`http://localhost:5000/searchPoduct/${e.target.name.value}`)
+    fetch(`https://heroverse-toys-server-site.vercel.app/searchPoduct/${e.target.name.value}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -32,14 +32,14 @@ const AllToys = () => {
     pageButton.push(index);
   }
   useEffect(() => {
-    fetch(`http://localhost:5000/products/totalProducts`)
+    fetch(`https://heroverse-toys-server-site.vercel.app/products/totalProducts`)
       .then((res) => res.json())
       .then((data) => setTotalRated(data.totalRatedItem));
   }, []);
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/products?page=${currentPage}&limit=${pageLimit}`
+      `https://heroverse-toys-server-site.vercel.app/products?page=${currentPage}&limit=${pageLimit}`
     )
       .then((res) => res.json())
       .then((data) => setProducts(data));

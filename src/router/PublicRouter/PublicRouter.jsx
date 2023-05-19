@@ -12,6 +12,8 @@ import ProductsDetails from '../../pages/ProductsDetails/ProductsDetails';
 import PrivateRouter from '../PrivateRouter/PrivateRouter';
 import UpdateProduct from '../../pages/MyToys/UpdateProduct/UpdateProduct';
 import ErrorPage from '../../pages/ErrorPage/ErrorPage';
+import NewArrivalsDetails from '../../pages/Home/NewArrival/NewArrivalDetails';
+import MyProfile from '../../pages/MyProfile/MyProfile';
 
 const router =createBrowserRouter([
     {
@@ -48,14 +50,23 @@ const router =createBrowserRouter([
                 element:<Register></Register>
             },
             {
+                path:'/myProfile',
+                element:<PrivateRouter><MyProfile></MyProfile></PrivateRouter>
+            },
+            {
                 path:'/productsDetails/:id',
                 element:<PrivateRouter><ProductsDetails></ProductsDetails></PrivateRouter>,
-                loader:({params})=>fetch(`http://localhost:5000/productsDetails/${params.id}`)
+                loader:({params})=>fetch(`https://heroverse-toys-server-site.vercel.app/productsDetails/${params.id}`)
+            },
+            {
+                path:'/newArrivals/:id',
+                element:<PrivateRouter><NewArrivalsDetails></NewArrivalsDetails></PrivateRouter>,
+                loader:({params})=>fetch(`https://heroverse-toys-server-site.vercel.app/newArrivals/${params.id}`)
             },
             {
                 path:'/updatedProduct/:id',
                 element:<PrivateRouter><UpdateProduct></UpdateProduct></PrivateRouter>,
-                loader:({params})=>fetch(`http://localhost:5000/productsDetails/${params.id}`)
+                loader:({params})=>fetch(`https://heroverse-toys-server-site.vercel.app/productsDetails/${params.id}`)
             },
         ]
     }

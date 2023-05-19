@@ -33,7 +33,7 @@ const AddAToy = () => {
 
         const addNewProductsItemInformation = {name,seller_name,seller_email,sub_category,picture,price,description,rating,quantity,category_id};
 
-        fetch('http://localhost:5000/products',{
+        fetch('https://heroverse-toys-server-site.vercel.app/products',{
             method:"POST",
             headers:{
                 "Content-Type" : "application/json"

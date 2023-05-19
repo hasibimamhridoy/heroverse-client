@@ -7,14 +7,14 @@ import swal from "sweetalert";
 import Spinner from "../../shared/Spinner/Spinner";
 
 const MyToys = () => {
-  const { user } = useContext(AuthContext);
+  const { user ,loading } = useContext(AuthContext);
 
   const [sortValue,setSortValue] = useState(-1)
   console.log(sortValue);
 
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/myAddedProducts?email=${user && user.email}&sortValue=${sortValue}`)
+    fetch(`https://heroverse-toys-server-site.vercel.app/myAddedProducts?email=${user && user.email}&sortValue=${sortValue}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);
@@ -30,7 +30,7 @@ const MyToys = () => {
       dangerMode: true,
     }).then((willDelete) => {
       if (willDelete) {
-        fetch(`http://localhost:5000/products/${_id}`, {
+        fetch(`https://heroverse-toys-server-site.vercel.app/products/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
@@ -50,7 +50,7 @@ const MyToys = () => {
     });
   };
 
-  if (products.length < 1) {
+  if (loading) {
     return <Spinner></Spinner>;
   }
 

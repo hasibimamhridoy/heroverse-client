@@ -35,6 +35,8 @@ const PrivateRouter = ({ children }) => {
     );
   }
 
+  
+
   return <div>{children}</div>;
 };
 

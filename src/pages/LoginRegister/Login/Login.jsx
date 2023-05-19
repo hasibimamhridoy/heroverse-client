@@ -174,7 +174,7 @@ const Login = () => {
                     </label>
                   </div>
 
-                  <a href="#!">Forgot password?</a>
+                  <a >Forgot password?</a>
                 </div>
 
                 <div className="text-center lg:text-left">

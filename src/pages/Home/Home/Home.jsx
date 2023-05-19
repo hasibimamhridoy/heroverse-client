@@ -7,6 +7,8 @@ import "aos/dist/aos.css"; // Import the CSS file for "aos"
 import { AuthContext } from "../../../ContextProvider/AuthContextProvider";
 import Spinner from "../../../shared/Spinner/Spinner";
 import TopRated from "../TopRated/TopRated";
+import NewArrival from "../NewArrival/NewArrival";
+
 
 const Home = () => {
  
@@ -33,6 +35,12 @@ const Home = () => {
       <div data-aos="zoom-in">
         <TopRated></TopRated>
       </div>
+
+      <div data-aos="zoom-in">
+        <NewArrival></NewArrival>
+      </div>
+
+      
     </div>
   );
 };

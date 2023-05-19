@@ -16,7 +16,7 @@ const ErrorPage = () => {
             Sorry, the page you are looking for could not be found.
           </p>
           <a
-            href="#"
+            
             className="flex items-center space-x-2 bg-purple-800 hover:bg-purple-700 text-gray-100 px-4 py-2 rounded transition duration-150"
             title="Return Home"
           >

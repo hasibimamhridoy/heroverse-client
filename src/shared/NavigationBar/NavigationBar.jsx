@@ -82,7 +82,7 @@ const NavigationBar = () => {
             </ul>
             <div className="hidden lg:block">
               {user ? (
-                <Link to="/">
+                <Link to="/myProfile">
                   <label
                     tabIndex={0}
                     className="btn tooltip tooltip-bottom btn-ghost btn-circle avatar"

@@ -7,21 +7,21 @@ const TopRated = () => {
   const [totalRated, setTotalRated] = useState({});
   const [currentPage, setCurrentPage] = useState(0);
   const [totalPages, setTotalPages] = useState();
-  const [pageLimit, setPageLimit] = useState(3);
+  const [pageLimit, setPageLimit] = useState(6);
   const pages = Math.ceil(totalRated / pageLimit);
   const pageButton = [];
   for (let index = 0; index < pages; index++) {
     pageButton.push(index);
   }
   useEffect(() => {
-    fetch(`http://localhost:5000/topRatedCount`)
+    fetch(`https://heroverse-toys-server-site.vercel.app/topRatedCount`)
       .then((res) => res.json())
       .then((data) => setTotalRated(data.totalRatedItem));
   }, []);
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/topRated?page=${currentPage}&limit=${pageLimit}`
+      `https://heroverse-toys-server-site.vercel.app/topRated?page=${currentPage}&limit=${pageLimit}`
     )
       .then((res) => res.json())
       .then((data) => setProducts(data));
@@ -166,11 +166,11 @@ const TopRated = () => {
               <select
                 onChange={(e) => setPageLimit(e.target.value)}
                 id="countries"
-                className="bg-gray-50 -mt-2 w-[3rem] text-gray-900 text-sm rounded-lg  block p-2.5"
+                className="bg-gray-50 -mt-2 w-[3.5rem] text-gray-900 text-sm rounded-lg  block p-2.5"
               >
-                <option value="3">3</option>
                 <option value="6">6</option>
                 <option value="9">9</option>
+                <option value="12">12</option>
               </select>
             </div>
           </ul>

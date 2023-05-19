@@ -66,12 +66,12 @@ const FooterBar = () => {
                 </h2>
                 <ul className="text-white dark:text-gray-400 font-medium">
                   <li className="mb-4">
-                    <a href="#" className="hover:underline">
+                    <a  className="hover:underline">
                       Privacy Policy
                     </a>
                   </li>
                   <li>
-                    <a href="#" className="hover:underline">
+                    <a  className="hover:underline">
                       Terms &amp; Conditions
                     </a>
                   </li>
@@ -90,7 +90,7 @@ const FooterBar = () => {
             </span>
             <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
               <a
-                href="#"
+                
                 className="text-gray-500 hover:text-white dark:hover:text-white"
               >
                 <svg
@@ -108,7 +108,7 @@ const FooterBar = () => {
                 <span className="sr-only">Facebook page</span>
               </a>
               <a
-                href="#"
+               
                 className="text-gray-500 hover:text-white dark:hover:text-white"
               >
                 <svg
@@ -126,7 +126,7 @@ const FooterBar = () => {
                 <span className="sr-only">Instagram page</span>
               </a>
               <a
-                href="#"
+               
                 className="text-gray-500 hover:text-white dark:hover:text-white"
               >
                 <svg
@@ -140,7 +140,7 @@ const FooterBar = () => {
                 <span className="sr-only">Twitter page</span>
               </a>
               <a
-                href="#"
+                
                 className="text-gray-500 hover:text-white dark:hover:text-white"
               >
                 <svg
@@ -158,7 +158,7 @@ const FooterBar = () => {
                 <span className="sr-only">GitHub account</span>
               </a>
               <a
-                href="#"
+                
                 className="text-gray-500 hover:text-white dark:hover:text-white"
               >
                 <svg
