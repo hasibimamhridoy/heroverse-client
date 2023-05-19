@@ -51,7 +51,7 @@ export default function MyTabs() {
 
   const [products, setProducts] = React.useState([]);
   React.useEffect(() => {
-    fetch(`https://heroverse-toys-server-site.vercel.app/products?cateId=${value}`)
+    fetch(`https://heroverse-toys-server-site.vercel.app/tabsdata?cateId=${value}`)
       .then((res) => res.json())
       .then((data) => {
         setProducts(data);

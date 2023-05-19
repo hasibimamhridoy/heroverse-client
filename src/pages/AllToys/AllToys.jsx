@@ -39,7 +39,7 @@ const AllToys = () => {
 
   useEffect(() => {
     fetch(
-      `https://heroverse-toys-server-site.vercel.app/products?page=${currentPage}&limit=${pageLimit}`
+      `https://heroverse-toys-server-site.vercel.app/alltoys?page=${currentPage}&limit=${pageLimit}`
     )
       .then((res) => res.json())
       .then((data) => setProducts(data));
@@ -210,7 +210,7 @@ const AllToys = () => {
               return (
                 <li onClick={() => setCurrentPage(btn)} key={btn}>
                   <a
-                    className={`px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300   dark:bg-gray-800 cursor-pointer dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${
+                    className={`px-3 py-2 leading-tight text-gray-500 border border-gray-300   dark:bg-gray-800 cursor-pointer dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${
                       currentPage === btn &&
                       "bg-purple-700 text-white border-none hover:bg-purple-700 hover:text-white"
                     }`}

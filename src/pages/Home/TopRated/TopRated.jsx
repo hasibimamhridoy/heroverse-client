@@ -1,12 +1,21 @@
 import { useEffect, useState } from "react";
 
 const TopRated = () => {
-  const [topRated, setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
+
+  //  useEffect(() => {
+  //   fetch(
+  //     `https://heroverse-toys-server-site.vercel.app/topRated`
+  //   )
+  //     .then((res) => res.json())
+  //     .then((data) => setProducts(data));
+  // }, []);
+
+
 
   //here is pagination
   const [totalRated, setTotalRated] = useState({});
   const [currentPage, setCurrentPage] = useState(0);
-  const [totalPages, setTotalPages] = useState();
   const [pageLimit, setPageLimit] = useState(6);
   const pages = Math.ceil(totalRated / pageLimit);
   const pageButton = [];
@@ -27,7 +36,8 @@ const TopRated = () => {
       .then((data) => setProducts(data));
   }, [currentPage, pageLimit]);
 
-  //handle previous and next btn error
+//  console.log(products);
+//   // handle previous and next btn error
   const handlePreviousPage = () => {
     if (currentPage == 0) {
       setCurrentPage(0);
@@ -48,7 +58,7 @@ const TopRated = () => {
         Top Rated Products
       </h1>
       <div className="grid lg:grid-cols-3 gap-5 mx-auto lg:my-10 my-5 w-[100%] p-5 grid-cols-1">
-        {topRated.map((rProduct) => {
+        {products.map((rProduct) => {
           const {
             category_id,
             description,
@@ -143,9 +153,9 @@ const TopRated = () => {
               return (
                 <li onClick={() => setCurrentPage(btn)} key={btn}>
                   <a
-                    className={`px-3 py-2 leading-tight text-gray-500 bg-white border border-gray-300   dark:bg-gray-800 cursor-pointer dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${
+                    className={`px-3 py-2 leading-tight text-gray-500 border dark:bg-gray-800 cursor-pointer dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white ${
                       currentPage === btn &&
-                      "bg-purple-700 text-white border-none hover:bg-purple-700 hover:text-white"
+                      "bg-purple-700 text-white border-none hover:bg-purple-700 border border-white hover:text-white"
                     }`}
                   >
                     {btn}

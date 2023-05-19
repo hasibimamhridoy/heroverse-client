@@ -9,9 +9,7 @@ import Spinner from "../../../shared/Spinner/Spinner";
 import TopRated from "../TopRated/TopRated";
 import NewArrival from "../NewArrival/NewArrival";
 
-
 const Home = () => {
- 
   useEffect(() => {
     AOS.init({
       duration: 1000, // Animation duration in milliseconds (default: 1000)
@@ -19,16 +17,15 @@ const Home = () => {
     }); // Initialize "aos"
   }, []);
 
- 
   return (
     <div>
       <div data-aos="zoom-in">
         <BannerSlider></BannerSlider>
       </div>
-      <div data-aos="zoom-in">
+      <div data-aos="fade-left">
         <Gallary></Gallary>
       </div>
-      <div data-aos="zoom-in">
+      <div data-aos="fade-right">
         <MyTabs></MyTabs>
       </div>
 
@@ -39,8 +36,6 @@ const Home = () => {
       <div data-aos="zoom-in">
         <NewArrival></NewArrival>
       </div>
-
-      
     </div>
   );
 };
