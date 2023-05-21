@@ -8,11 +8,33 @@ const MainLayout = () => {
 
     const loc = useLocation()
 
+    console.log(loc);
+
+    // useEffect(()=>{
+
+
+    //     if (loc.state) {
+    //           document.title = `HeroVerse - ${loc.state}`
+    //     }
+
+    //     else if (loc.pathname === '/') {
+
+    //          document.title = "HeroVerse - Home"
+    //     }
+
+    //     else{
+    //          document.title = `HeroVerse ${loc.pathname.toUpperCase()}`.replace('/','-')
+    //     }
+
+    // },[loc.pathname])
     useEffect(()=>{
 
 
         if (loc.state) {
               document.title = `HeroVerse - ${loc.state}`
+        }
+        if (loc.state?.pathname === '/login') {
+              document.title = `HeroVerse - "LOGIN`
         }
 
         else if (loc.pathname === '/') {

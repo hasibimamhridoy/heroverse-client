@@ -23,32 +23,33 @@ const UpdateProduct = () => {
   const handleUpdateProduct = (e)=>{
     e.preventDefault()
     const form = e.target
-    const name = form.name.value
-    const seller_name = form.sellerName.value
-    const seller_email = form.sellerEmail.value
-    const sub_category = form.category.value
+    // const name = form.name.value
+    // const seller_name = form.sellerName.value
+    // const seller_email = form.sellerEmail.value
+    // const sub_category = form.category.value
     const price= form.price.value
-    const picture = form.photoURL.value
+    // const picture = form.photoURL.value
     const description = form.description.value
-    const rating = form.rating.value
+    // const rating = form.rating.value
     const quantity = form.quantity.value
     
-    let category_id = ''
+    // let category_id = ''
 
-        if (sub_category=='Marvel') {
-            category_id = '0'
-        }
-        if (sub_category=='Star Wars') {
-            category_id = '1'
-        }
-        if (sub_category=='Transformers') {
-            category_id = '2'
-        }
+    //     if (sub_category=='Marvel') {
+    //         category_id = '0'
+    //     }
+    //     if (sub_category=='Star Wars') {
+    //         category_id = '1'
+    //     }
+    //     if (sub_category=='Transformers') {
+    //         category_id = '2'
+    //     }
 
-    const addNewProductsItemInformation = {name,seller_name,seller_email,sub_category,picture,price,description,rating,quantity,category_id};
+    // const addNewProductsItemInformation = {name,seller_name,seller_email,sub_category,picture,price,description,rating,quantity,category_id};
+    const addNewProductsItemInformation = {price,description,quantity};
     
     fetch(`https://heroverse-toys-server-site.vercel.app/products/update/${_id}`,{
-          method:"PUT",
+          method:"PATCH",
           headers:{
               "Content-Type" : "application/json"
           },
@@ -74,11 +75,11 @@ const UpdateProduct = () => {
         <section className="bg-gradient-to-br rounded-lg bg-purple-800 dark:bg-gray-900">
           <div className="py-8 px-4 mx-auto max-w-2xl lg:py-16">
             <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
-              Add a new product
+              Update a product
             </h2>
             <form onSubmit={handleUpdateProduct}>
               <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
-                <div className="sm:col-span-2">
+                {/* <div className="sm:col-span-2">
                   <label
                     htmlFor="name"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -154,6 +155,7 @@ const UpdateProduct = () => {
                     
                   </select>
                 </div>
+
                 <div>
                   <label
                     htmlFor="Price"
@@ -170,19 +172,19 @@ const UpdateProduct = () => {
                     placeholder="12"
                     required=""
                   />
-                </div>
+                </div> */}
 
                 <div className="w-full">
                   <label
                     htmlFor="rating"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
-                    Rating
+                    Price
                   </label>
                   <input
                     type="number"
-                    defaultValue={rating}
-                    name="rating"
+                    defaultValue={price}
+                    name="price"
                     id="rating"
                     className="bg-gray-50 outline-none border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
                     placeholder="Rating"
@@ -207,8 +209,7 @@ const UpdateProduct = () => {
                   />
                 </div>
 
-              
-                <div className="sm:col-span-2">
+                {/* <div className="sm:col-span-2">
                   <label
                     htmlFor="photoURL"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -224,7 +225,7 @@ const UpdateProduct = () => {
                     placeholder="Product Photo Url"
                     required=""
                   />
-                </div>
+                </div> */}
                 <div className="sm:col-span-2">
                   <label
                     htmlFor="description"

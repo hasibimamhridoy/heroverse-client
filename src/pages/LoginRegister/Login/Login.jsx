@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../../ContextProvider/AuthContextProvider";
 import GoogleIcon from "@mui/icons-material/Google";
@@ -6,7 +6,7 @@ import GoogleIcon from "@mui/icons-material/Google";
 const Login = () => {
   const { handleManualLogin, handleGoogleRegister, user } =
     useContext(AuthContext);
-
+  const loc = useLocation();
   const [error, setError] = useState("");
   const location = useLocation();
   const fromPath = location.state?.from?.pathname || "/";
@@ -54,6 +54,10 @@ const Login = () => {
         setError(error.errorMessage);
       });
   };
+
+  useEffect(() => {
+    document.title = `HeroVerse - LOGIN`;
+  }, []);
   return (
     <div>
       <section className="lg:h-screen text-white">
@@ -174,7 +178,7 @@ const Login = () => {
                     </label>
                   </div>
 
-                  <a >Forgot password?</a>
+                  <a>Forgot password?</a>
                 </div>
 
                 <div className="text-center lg:text-left">
